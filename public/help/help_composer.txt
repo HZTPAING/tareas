@@ -1,0 +1,18 @@
+rm composer.json composer.lock -r vendor
+
+composer init
+
+composer require vlucas/phpdotenv
+
+composer require hztpaserg/saludo
+
+composer require pimple/pimple
+
+composer dump-autoload
+
+composer show
+
+composer diagnose
+
+
+

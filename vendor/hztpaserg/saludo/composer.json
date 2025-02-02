@@ -1,0 +1,31 @@
+{
+    "name": "hztpaserg/saludo",
+    "version": "1.0.2",
+    "description": "Librería en PHP para generar saludos",
+    "authors": [
+        {
+            "name": "Serhii Production",
+            "email": "your_email@example.com",
+            "homepage": "https://github.com/serhii/saludo",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "keywords": [
+        "saludo",
+        "libreria",
+        "php",
+        "generar"
+    ],
+    "homepage": "https://github.com/serhii/saludo",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Saludo\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "stable"
+}

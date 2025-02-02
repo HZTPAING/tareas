@@ -1,0 +1,64 @@
+/* === VARIABLES GLOBALES === */
+/* Define colores para mensajes de éxito y error */
+:root {
+    --color-success: #28a745; /* Color verde para mensajes de éxito */
+    --color-success-hover: #218838; /* Color más oscuro para hover */
+    --color-danger: #dc3545; /* Color rojo para mensajes de error */
+    --color-danger-hover: #c82333; /* Color más oscuro para hover */
+}
+
+/* === AJUSTAR TEXTO LARGO === */
+/* Permite que el texto largo en mensajes de alerta se ajuste a varias líneas */
+.message-res {
+    word-wrap: break-word; /* Ajusta el texto automáticamente */
+    white-space: normal; /* Permite el ajuste de texto */
+}
+
+/* === CONTENEDOR DE ALERTAS === */
+/* Estilo para el contenedor de mensajes */
+.alert-mensaje-status {
+    padding: 20px; /* Espaciado interno */
+    margin: 10px; /* Espaciado externo */
+    border-radius: 8px; /* Bordes redondeados */
+    position: relative; /* Posición relativa para posicionar el botón de cierre */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* === BOTÓN DE CIERRE === */
+/* Estilo para los botones de cierre */
+.btn-alert-close {
+    /*height: 100%; /* Ocupa toda la altura del contenedor */
+    /*width: 50px; /* Botón cuadrado con un ancho fijo */
+    display:flex; /* Asegura que el contenido esté centrado */
+    align-items: center; /* Centra el ícono verticalmente */
+    justify-content: center; /* Centra el ícono horizontalmente */
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: background-color 0.3s ease; /* Animación al interactuar */
+}
+
+/* Hover en botones de cierre */
+.btn-alert-close:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo gris claro al pasar */
+    color: var(--color-danger); /* Cambiar el color del ícono según el tipo */
+}
+
+/* Colores específicos según el tipo de alerta */
+.alert-danger .btn-alert-close {
+    color: var(--color-danger); /* Rojo para errores */
+}
+
+.alert-danger .btn-alert-close:hover {
+    background-color: var(--color-danger-hover); /* Fondo rojo más oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+.alert-success .btn-alert-close {
+    color: var(--color-success); /* Verde para éxito */
+}
+
+.alert-success .btn-alert-close:hover {
+    background-color: var(--color-success-hover); /* Fondo verde más oscuro */
+    color: #fff; /* Texto blanco */
+}

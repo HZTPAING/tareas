@@ -1,0 +1,26 @@
+{
+    "name": "hztpaing/tareas",
+    "description": "La libreria PHP de las clases para gestionar las tareas",
+    "type": "library",
+    "require": {
+        "vlucas/phpdotenv": "5.6.1",
+        "pimple/pimple": "^3.5",
+        "hztpaserg/saludo": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hztpaing\\Tareas\\": "src/",
+            "Hztpaing\\Tareas\\controller\\": "controller/",
+            "Hztpaing\\Tareas\\model\\": "model/",
+            "Hztpaing\\Tareas\\src\\helpers\\": "src/helpers/",
+            "Hztpaing\\Tareas\\src\\tareas\\": "src/tareas/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hztpaserg"
+        }
+    ],
+    "minimum-stability": "stable"
+}
