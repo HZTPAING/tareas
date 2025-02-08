@@ -10,6 +10,7 @@
  // Obtener el servicio de traducción desde el contenedor global
     global $container;
     $translator = $container['translator'];
+    $htmlHelper = $container['htmlHelper'];
 ?>
 
 <nav class="navbar navbar-expand-lg bg-light shadow-sm">

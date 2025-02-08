@@ -2,7 +2,7 @@
 
     namespace Hztpaing\Tareas\controller;
 
-    USE Hztpaing\Tareas\localization\Translator;
+    use Hztpaing\Tareas\src\localization\Translator;
     use InvalidArgumentException;
 
 /**
@@ -53,7 +53,7 @@ class ViewController {
      * @param string $view Nombre de la vista a cargar (sin extensión).
      * @throws InvalidArgumentException Si la vista especificada no existe.
      */
-    public function load_view(string $view): void
+    public function load_view(string $view, array $data = []): void
     {
         $viewFile = $this->view_path . $view . '.php';
 
@@ -62,6 +62,9 @@ class ViewController {
                 $this->translator->trans('ERR_VISTA_NO_EXISTE') . ": $view"
             );
         }
+        
+        // Extraer las variables del array $data para que estén disponibles como variables locales en la vista
+        extract($data); // Extrae las variables pasadas como parámetros al método en variables locales
 
         // Si la solicitud es AJAX, incluye la vista en lugar de mostrar el contenido
         if ($this->is_ajax_request()) {

@@ -14,7 +14,8 @@
             "Hztpaing\\Tareas\\controller\\": "controller/",
             "Hztpaing\\Tareas\\model\\": "model/",
             "Hztpaing\\Tareas\\src\\helpers\\": "src/helpers/",
-            "Hztpaing\\Tareas\\src\\tareas\\": "src/tareas/"
+            "Hztpaing\\Tareas\\src\\tareas\\": "src/tareas/",
+            "Hztpaing\\Tareas\\src\\localization\\": "src/localization/"
         }
     },
     "authors": [

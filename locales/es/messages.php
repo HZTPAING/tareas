@@ -26,12 +26,44 @@ return [
         'msg' => 'El usuario <strong>%s</strong> ya ha iniciado sesión con exito.'
     ],
 
-    // Mensajes de ERROR en la vista de tareas
+    // Mensajes de ERROR en la vista de TAREAS
     'TABLERO_SIN_TAREAS' => [
         'type' => 'danger',
         'msg' => 'No hay tareas disponibles para mostrar en el tablero.',
     ],
     'APP_TABLERO_TAREAS' => 'Tablero de Tareas',
+
+    // Mensajes de la ventana modal DynamicConfirmModal
+    'DYNAMIC_MODAL_TITLE' => 'Confirmar acción',
+    'DYNAMIC_MODAL_MSG' => '¿Estás seguro de que deseas realizar esta acción?',
+    'DYNAMIC_MODAL_WARNING' => 'Esta acción no se puede deshaser',
+    'DYNAMIC_MODAL_YES_BUTTON' => 'Confirmar',
+    'DYNAMIC_MODAL_NO_BUTTON' => 'Cancelar',
+
+    // Mensajes de la ventana modal DynamicConfirmModal Eliminar TAREA
+    'DYNAMIC_MODAL_BORRAR_TAREA_TITLE' => 'Confirmar acción de elimiar tarea',
+    'DYNAMIC_MODAL_BORRAR_TAREA_MSG' => '¿Estás seguro de que deseas eliminar tarea?',
+    'DYNAMIC_MODAL_BORRAR_TAREA_WARNING' => 'Esta acción no se puede deshaser',
+    'DYNAMIC_MODAL_BORRAR_TAREA_YES_BUTTON' => 'Borrar',
+    'DYNAMIC_MODAL_BORRAR_TAREA_NO_BUTTON' => 'Cancelar',
+
+    // Mensaje de EXITO de elimin la TAREA
+    'BORRAR_TAREA_EXITO' => [
+        'type' =>'success',
+        'msg' => '<strong>Exito:</strong> La tarea <strong>%s</strong> ha sido eliminada correctamente.'
+    ],
+
+    // Mensaje de ERROR de elimin la TAREA
+    'BORRAR_TAREA_ERROR' => [
+        'type' =>'danger',
+        'msg' => '<strong>Error:</strong> Error al intentar eliminar la tarea <strong>%s</strong>.'
+    ],
+
+    // Mensaje de FAIL de elimin la TAREA
+    'BORRAR_TAREA_FAIL' => [
+        'type' =>'danger',
+        'msg' => 'Error al procesar solicitud AJAX.'
+    ],
 
     // Menu principal de la app
     'APP_PRODUCTOS' => 'Productos',

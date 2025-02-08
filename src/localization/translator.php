@@ -1,6 +1,6 @@
 <?php
 
-namespace Hztpaing\Tareas\localization;
+namespace Hztpaing\Tareas\src\localization;
 
 class Translator
 {
@@ -9,7 +9,7 @@ class Translator
 
     public function __construct($locale = 'es')
     {
-        $this->locale = $locale;
+        $this->locale = in_array($locale, ['es', 'en', 'ua']) ? $locale : 'es';
         $this->loadTranslations();
     }
 

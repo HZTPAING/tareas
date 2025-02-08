@@ -2,7 +2,7 @@
 
 namespace Hztpaing\Tareas\src\helpers;
 
-use Hztpaing\Tareas\localization\Translator;
+use Hztpaing\Tareas\src\localization\Translator;
 
 /**
  * Clase HtmlHelper

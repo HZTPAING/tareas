@@ -5,17 +5,22 @@ namespace Hztpaing\Tareas\controller;
 use Hztpaing\Tareas\controller\FiltrarDatos;
 use Hztpaing\Tareas\controller\ViewController;
 use Hztpaing\Tareas\controller\UserController;
+use Exception;
 
 class Router {
     private $route;
     private $requestData;
     private $htmlHelper;
+    private $apiHelper;
     private $translator;
+    private $tareasController;
 
     public function __construct() {
         global $container;
         $this->htmlHelper = $container['htmlHelper'];
+        $this->apiHelper = $container['apiHelper'];
         $this->translator = $container['translator'];
+        $this->tareasController = $container['tareasController'];
 
         $filtro = new FiltrarDatos();
 
@@ -29,6 +34,14 @@ class Router {
         $controller = new ViewController(BASE_PATH_VIEWS);     // Carga la pagina
 
         switch ($this->route) {
+            // Establecer idioma por defecto y permitir cambiarlo
+            case 'change_locale':
+                if (isset($this->requestData['locale'])) {
+                    $_SESSION['locale'] = $this->requestData['locale'];
+                }
+                header('Location: '. BASE_URL . DIRECTORY_SEPARATOR . 'index.php?r='. $this->requestData['route_previous'] ?? 'home');
+                exit();
+                break;
             // HOME
             case 'home':
                 $controller->load_view('home');
@@ -47,8 +60,7 @@ class Router {
                 } else {
                     if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
                         // Generar el menu y la lista de tareas
-                        $controller->load_view('tareas/tareas_navi');
-                        $controller->load_view('tareas/tareas_listado');
+                        $this->load_tareas($controller);
                         break;
                     } else {
                         // Iniciar el formulario de inicio de la sesion
@@ -59,13 +71,65 @@ class Router {
                 break;
             // TAREAS
             case 'tareas':
-                // Generar el menu y la lista de tareas
-                $controller->load_view('tareas/tareas_navi');
-                $controller->load_view('tareas/tareas_listado');
+                if (isset($this->requestData['action']) && !empty($this->requestData['action'])) {
+                    switch ($this->requestData['action']) {
+                        // Crear nueva tarea
+                        case 'FORM_NUEVA_TAREA':
+                            $this->tareasController->CrearTarea($this->requestData);
+                            break;
+                        // Editar tarea
+                        case 'FORM_EDITAR_TAREA':
+                            $this->tareasController->ActualizarTarea($this->requestData);
+                            break;
+                        // Eliminar tarea
+                        case 'AJAX_ELIMINAR_TAREA':
+                            $this->eliminar_tarea($this->requestData);
+                            break;
+                    }
+                } else {
+                    // Generar el menu y la lista de tareas
+                    $this->load_tareas($controller);
+                }
+                break;
+            // API_TRANSLATIONS
+            case 'api_tranlations':
+                // Obtener traducciones
+                $this->apiHelper->handleApiTranslations();
+                break;
             default:
                 $controller->load_view('404');
                 break;
         }
+    }
+
+    private function eliminar_tarea($datos) {
+        // Eliminar la tarea de la base de datos
+        try {
+            // Eliminar la tarea de la base de datos
+            $this->tareasController->delete($datos['rowid'], 'i');
+            echo json_encode([
+                'success' => true,
+                'msg' => $datos['nombreTarea']
+            ]);
+        } catch (Exception $e) {
+            // En caso de error, enviar el mensaje de error
+            echo json_encode([
+                'success' => false,
+                'msg' => $datos['nombreTarea']
+            ]);
+        }
+    }
+
+    private function load_tareas($controller) {
+        // Generar el menu y la lista de tareas
+        $controller->load_view('tareas/tareas_navi', [
+            'datos_route' => 'tareas'
+        ]);
+        // Consultar los datos de las tareas en la base de datos
+        $datosTareas_user = $this->tareasController->ListaTareas_usuario($_SESSION['rowid']);
+        $controller->load_view('tareas/tareas_listado', [
+            'datosTareas_user' => $datosTareas_user
+        ]);
     }
 
     private function login($datos_post) {
@@ -80,7 +144,12 @@ class Router {
             $hashFormulario = md5($contraseñaFormulario);
             if (hash_equals($hashFormulario, $login_res[0]['pass'])) {
                 $userExiste = 1;
-                session_start();
+
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+                
+                $_SESSION['locale'] = APP_LOCALE;
                 $_SESSION['email'] = $login_res[0]['email'];
                 $_SESSION['name'] = $login_res[0]['name'];
                 $_SESSION['rowid'] = $login_res[0]['rowid'];
@@ -106,8 +175,13 @@ class Router {
     
     private function logout() {
         // Cerrar sesión
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
+        // Recuperamos el idioma de la sesion cerrada
+        session_start();
+        $_SESSION['locale'] = APP_LOCALE;
         header('Location: ' . BASE_URL . DIRECTORY_SEPARATOR . 'index.php?r=login');
     }
 

@@ -62,6 +62,10 @@
     <script 
         src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js">
     </script>
+
+    <!-- === Scripts de la aplicación === -->
+    <!-- Scripts específicos para la página de tareas -->
+    <script src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script_translations.js'; ?>"></script>
 </head>
 
 <body>

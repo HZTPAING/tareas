@@ -4,8 +4,6 @@
     use Hztpaing\Tareas\model\Model_crud;
 
     class UserController extends Model_crud {
-        protected $_table_name = 'app_users';
-        protected $_id = 'rowid';
 
         public function ValidarUsuario($datos) {
             $query = "SELECT * FROM app_users WHERE status = 2 AND email = ?";

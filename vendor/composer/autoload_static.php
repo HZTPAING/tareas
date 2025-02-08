@@ -28,6 +28,7 @@ class ComposerStaticInit92a129ffb24b3f698d3a7dcbe5003060
         'H' => 
         array (
             'Hztpaing\\Tareas\\src\\tareas\\' => 27,
+            'Hztpaing\\Tareas\\src\\localization\\' => 33,
             'Hztpaing\\Tareas\\src\\helpers\\' => 28,
             'Hztpaing\\Tareas\\model\\' => 22,
             'Hztpaing\\Tareas\\controller\\' => 27,
@@ -71,6 +72,10 @@ class ComposerStaticInit92a129ffb24b3f698d3a7dcbe5003060
         'Hztpaing\\Tareas\\src\\tareas\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/tareas',
+        ),
+        'Hztpaing\\Tareas\\src\\localization\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/localization',
         ),
         'Hztpaing\\Tareas\\src\\helpers\\' => 
         array (

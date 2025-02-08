@@ -1,4 +1,9 @@
 <?php
+    // Iniciar session si no esta iniciada
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     // Asegurar que los servicios necesarios estén disponibles desde el contenedor
     global $container;
     $translator = $container['translator'];         // Servicio de traducción
@@ -15,7 +20,7 @@
 <nav class="navbar navbar-expand-lg bg-light shadow">
     <div class="container-fluid">
         <!-- Título de la barra de navegación -->
-        <a class="navbar-brand fw-bold text-primary" href="<?= BASE_URL . '/index.php?r=login' ?>">
+        <a class="navbar-brand fw-bold text-primary" href="<?= BASE_URL . DIRECTORY_SEPARATOR . 'index.php?r=tareas' ?>">
             <?= htmlspecialchars($translator->trans('APP_TITULO_TAREAS'), ENT_QUOTES, 'UTF-8');    // Título traducido ?>
         </a>
 
@@ -52,16 +57,16 @@
                 </div>
 
                 <!-- Botón para cambiar el idioma -->
-                <form method="post" action="<?= BASE_URL . DIRECTORY_SEPARATOR . 'index.php?r=tareas_listado&action=cambiarIdioma'; ?>" class="me-3">
+                <form method="post" action="<?= BASE_URL . DIRECTORY_SEPARATOR . 'index.php?r=change_locale&route_previous=' . $datos_route; ?>" class="me-3">
                     <select 
                         name="locale" 
                         class="form-select form-select-sm" 
                         onchange="this.form.submit()"
                         aria-label="<?= htmlspecialchars($translator->trans('APP_CAMBIAR_IDIOMA'), ENT_QUOTES, 'UTF-8'); ?>"> // Etiqueta para el selector de idioma ?>"
-                        <option value="es" <?= APP_LOCALE === 'es' ? 'selected' : ''; ?>>
+                        <option value="es" <?= $_SESSION['locale'] === 'es' ? 'selected' : ''; ?>>
                             <?= htmlspecialchars($translator->trans('APP_IDIOMA_ES'), ENT_QUOTES, 'UTF-8'); // Opción para el idioma español ?>
                         </option>
-                        <option value="en" <?= APP_LOCALE === 'en' ? 'selected' : ''; ?>>
+                        <option value="en" <?= $_SESSION['locale'] === 'en' ? 'selected' : ''; ?>>
                             <?= htmlspecialchars($translator->trans('APP_IDIOMA_EN'), ENT_QUOTES, 'UTF-8'); // Opción para el idioma inglés ?>
                         </option>
                     </select>

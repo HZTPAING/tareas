@@ -9,20 +9,7 @@
     // Utilizar Dotenv para manejar variables de entorno
     use Dotenv\Dotenv;
     use Hztpaing\Tareas\controller\Router;
-
-    // Cargar configuración
-    require_once('config.php');
-
-    // Cargar el autoload de Composer
-    require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
-
-    // Cargar el contenedor de dependencias
-    require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'container.php');
-    global $container;
-    // Obtener el servicio 'translator' desde el contenedor
-    $translator = $container['translator'];
-    // Obtener el servicio 'HtmlHelper' desde el contenedor
-    $htmlHelper = $container['htmlHelper'];
+    use Hztpaing\Tareas\src\localization\Translator;
 
     // Detectar el entorno actual
     $envFile = getenv('APP_ENV') ?: 'desarrollo';
@@ -33,9 +20,15 @@
         die("Entorno no válido: $envFile");
     }
 
+    // Si no esta definido BASE_PATH cargamos __DIR__
+    $basePath = defined('BASE_PATH') ? BASE_PATH : __DIR__;
+
+    // Cargar el autoload de Composer
+    require_once($basePath . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
+
     // Cargar el archivo.env según el entorno
     try {
-        $dotenv = Dotenv::createImmutable(BASE_PATH, ".env.$envFile");
+        $dotenv = Dotenv::createImmutable($basePath, ".env.$envFile");
         $dotenv->load();
     } catch (Exception $e) {
         die(
@@ -43,17 +36,22 @@
         );
     }
 
-    // Definir las variables cargadas desde .env
-    define('BASE_URL', $_ENV['BASE_URL']);
-    // Definir las variables de acceso a la BD
-    define('DB_HOST', $_ENV['DB_HOST']);
-    define('DB_USER', $_ENV['DB_USER']);
-    define('DB_PASS', $_ENV['DB_PASSWORD']);
-    define('DB_NAME', $_ENV['DB_NAME']);
+    // Iniciar sesión si no está iniciada
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    // Iniciar la carga automática de clases personalizadas
-    // require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'Autoload.php');
-    // $autoload = new Autoload();
+    // Cargar configuración
+    require_once('config.php');
+
+    // Cargar el contenedor de dependencias
+    require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'container.php');
+    global $container;
+
+    // Obtener el servicio 'translator' desde el contenedor
+    $translator = $container['translator'];
+    // Obtener el servicio 'HtmlHelper' desde el contenedor
+    $htmlHelper = $container['htmlHelper'];
 
     $app = new Router();
 ?>

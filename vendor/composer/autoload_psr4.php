@@ -13,6 +13,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'Hztpaing\\Tareas\\src\\tareas\\' => array($baseDir . '/src/tareas'),
+    'Hztpaing\\Tareas\\src\\localization\\' => array($baseDir . '/src/localization'),
     'Hztpaing\\Tareas\\src\\helpers\\' => array($baseDir . '/src/helpers'),
     'Hztpaing\\Tareas\\model\\' => array($baseDir . '/model'),
     'Hztpaing\\Tareas\\controller\\' => array($baseDir . '/controller'),

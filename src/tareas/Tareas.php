@@ -79,7 +79,7 @@
                     <div class="card tarea-card %s m-2" style="width: 18rem;">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span class="fw-bold">%s</span>
-                            <span class="badge %s">$s</span>
+                            <span class="badge %s">%s</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text"><strong>Descripción:</strong> %s</p>
