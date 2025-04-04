@@ -7,8 +7,12 @@
         <!-- Inicio del pie de página -->
         <footer>
             <!-- === Scripts de la aplicación === -->
+            <!-- Script de la auxiliar de generar etiqueta SELECT -->
+            <script type="module" src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'SelectElementJS.js'; ?>" ></script>
+            <!-- Script de las funciones auxiliares -->
+            <script type="module" src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script_helpers.js'; ?>" ></script>
             <!-- Scripts específicos para la página de tareas -->
-            <script src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script_tareas.js'; ?>"></script>
+            <script type="module" src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script_tareas.js'; ?>" ></script>
             <!-- Script para manejar modales dinámicos de confirmación -->
             <script src="<?= BASE_URL . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script_dynamicConfirmModal.js'; ?>"></script>
             
@@ -31,58 +35,6 @@
                 <!-- Este contenedor se puede usar para inyectar contenido dinámico vía JavaScript -->
             </section>
         </footer>
-
-        <!-- Modal de confirmación -->
-        <div 
-            class="modal fade" 
-            id="dynamicConfirmModal" 
-            tabindex="-1" 
-            aria-labelledby="dynamicConfirmModalLabel" 
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h5 
-                            class="modal-title"
-                            id="dynamicConfirmModalLabel"
-                            style="color: white;"
-                        >
-                            Confirmar borrado
-                        </h5>
-                        <button 
-                            type="button" 
-                            class="btn-close" 
-                            data-bs-dismiss="modal" 
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        ¿Estás seguro de que deseas realizar esta acción?
-                    </div>
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                        <button 
-                            type="button" 
-                            class="btn btn-secondary" 
-                            data-bs-dismiss="modal" 
-                            id="cancelBtn"
-                        >
-                            Cancelar
-                        </button>
-                        <button 
-                            type="button" 
-                            class="btn btn-danger" 
-                            id="confirmBtn"
-                        >
-                            Borrar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </body>
 

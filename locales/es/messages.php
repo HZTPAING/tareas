@@ -47,10 +47,28 @@ return [
     'DYNAMIC_MODAL_BORRAR_TAREA_YES_BUTTON' => 'Borrar',
     'DYNAMIC_MODAL_BORRAR_TAREA_NO_BUTTON' => 'Cancelar',
 
+    // Mensajes de la ventana modal DynamicEditModal Actualizar TAREA
+    'DYNAMIC_MODAL_EDITAR_TAREA_TITLE' => 'Editar tarea',
+    'DYNAMIC_MODAL_EDITAR_TAREA_YES_BUTTON' => 'Editar',
+    'DYNAMIC_MODAL_EDITAR_TAREA_NO_BUTTON' => 'Cancelar',
+    'DYNAMIC_MODAL_EDITAR_TAREA_NOMBRE_LABEL' => 'Nombre de la tarea',
+    'DYNAMIC_MODAL_EDITAR_TAREA_DESCRIPCION_LABEL' => 'Descripción de la tarea',
+    'DYNAMIC_MODAL_EDITAR_TAREA_FECHA_INICIO' => 'Fecha de inicio',
+    'DYNAMIC_MODAL_EDITAR_TAREA_FECHA_FINAL' => 'Fecha de final',
+    'DYNAMIC_MODAL_EDITAR_TAREA_ESTADO_LABEL' => 'Estado de la tarea',
+    'DYNAMIC_MODAL_EDITAR_TAREA_LISTA_USUARIOS_CARGO' => 'Usuario a cargo',
+
+
     // Mensaje de EXITO de elimin la TAREA
     'BORRAR_TAREA_EXITO' => [
         'type' =>'success',
         'msg' => '<strong>Exito:</strong> La tarea <strong>%s</strong> ha sido eliminada correctamente.'
+    ],
+
+    // Mensaje de EXITO de edit la TAREA
+    'EDITAR_TAREA_EXITO' => [
+        'type' =>'success',
+        'msg' => '<strong>Exito:</strong> La tarea <strong>%s</strong> ha sido actualizada correctamente.'
     ],
 
     // Mensaje de ERROR de elimin la TAREA
@@ -59,10 +77,34 @@ return [
         'msg' => '<strong>Error:</strong> Error al intentar eliminar la tarea <strong>%s</strong>.'
     ],
 
+    // Mensaje de ERROR de edit la TAREA
+    'EDITAR_TAREA_ERROR' => [
+        'type' =>'danger',
+        'msg' => '<strong>Error:</strong> Error al intentar actualizar la tarea <strong>%s</strong>.'
+    ],
+
     // Mensaje de FAIL de elimin la TAREA
     'BORRAR_TAREA_FAIL' => [
         'type' =>'danger',
-        'msg' => 'Error al procesar solicitud AJAX.'
+        'msg' => 'Error al procesar solicitud AJAX de eliminar la tarea <strong>%s</strong>.'
+    ],
+
+    // Mensaje de FAIL de edit la TAREA
+    'EDITAR_TAREA_FAIL' => [
+        'type' =>'danger',
+        'msg' => 'Error al procesar solicitud AJAX de editar la tarea <strong>%s</strong>.'
+    ],
+
+    // Mensaje de NO EXISTE la clase "tarea-card"
+    'ACCION_TAREA_CARD_ERR' => [
+        'type' =>'danger',
+        'msg' => 'La clase <strong>"tarea-card"</strong> no existe.'
+    ],
+
+    // Mensaje de ERROR al consultar la lista de los usuarios"
+    'LISTA_USUARIOS_ERROR' => [
+        'type' =>'danger',
+        'msg' => 'La consulta de <strong>"SELECT * FROM app_users WHERE status = 2"</strong> no ha sido con existo.'
     ],
 
     // Menu principal de la app
@@ -88,4 +130,18 @@ return [
     'APP_PLACEHOLDER_PASSWORD' => 'Introduce tu contraseña',
     'APP_LOGIN_BUTTON' => 'Iniciar sesión',
     'APP_RESET_BUTTON' => 'Reiniciar',
+
+    // Traducciones de la tarjeta de una tarea
+    'APP_TAREA_ESTADO_ACTIVA' => 'activa',
+    'APP_TAREA_ESTADO_PENDIENTE' => 'pendiente',
+    'APP_TAREA_ESTADO_FINALIZADA' => 'finalizada',
+    'APP_TAREA_ESTADO_EN_MARCHA' => 'en_marcha',
+    'APP_TAREA_ESTADO_CANCELADA' => 'cancelada',
+    'APP_TAREA_ESTADO_FALLADA' => 'fallada',
+    'APP_TAREA_CARD_DESCRIPTION' => '<strong>Descripción:</strong> %s',
+    'APP_TAREA_CARD_USER_ASIGN' => '<strong>Usuario Asignado:</strong> %s:',
+    'APP_TAREA_CARD_DATE_START' => '<strong>Fecha Inicio:</strong> %s:',
+    'APP_TAREA_CARD_DATE_END' => '<strong>Fecha Final:</strong> %s',
+    'APP_TAREA_CARD_BOTON_EDIT' => 'Editar',
+    'APP_TAREA_CARD_BOTON_DEL' => 'Eliminar',
 ];

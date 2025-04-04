@@ -47,10 +47,27 @@ return [
     'DYNAMIC_MODAL_BORRAR_TAREA_YES_BUTTON' => 'Delete',
     'DYNAMIC_MODAL_BORRAR_TAREA_NO_BUTTON' => 'Cancel',
 
+    // DynamicEditModal window messages - Update Task
+    'DYNAMIC_MODAL_EDITAR_TAREA_TITLE' => 'Confirm Task Updation',
+    'DYNAMIC_MODAL_EDITAR_TAREA_YES_BUTTON' => 'Update',
+    'DYNAMIC_MODAL_EDITAR_TAREA_NO_BUTTON' => 'Cancel',
+    'DYNAMIC_MODAL_EDITAR_TAREA_NOMBRE_LABEL' => 'Task Name',
+    'DYNAMIC_MODAL_EDITAR_TAREA_DESCRIPCION_LABEL' => 'Task Description',
+    'DYNAMIC_MODAL_EDITAR_TAREA_FECHA_INICIO' => 'Start Date',
+    'DYNAMIC_MODAL_EDITAR_TAREA_FECHA_FINAL' => 'End Date',
+    'DYNAMIC_MODAL_EDITAR_TAREA_ESTADO_LABEL' => 'Task Status',
+    'DYNAMIC_MODAL_EDITAR_TAREA_LISTA_USUARIOS_CARGO' => 'Assigned User',
+
     // SUCCESS message for deleting a task
     'BORRAR_TAREA_EXITO' => [
         'type' => 'success',
         'msg' => '<strong>Success:</strong> The task <strong>%s</strong> has been successfully deleted.'
+    ],
+
+    // SUCCESS message for updating a task
+    'EDITAR_TAREA_EXITO' => [
+        'type' => 'success',
+        'msg' => '<strong>Success:</strong> The task <strong>%s</strong> has been successfully updated.'
     ],
 
     // ERROR message for deleting a task
@@ -59,10 +76,34 @@ return [
         'msg' => '<strong>Error:</strong> Failed to delete task <strong>%s</strong>.'
     ],
 
+    // ERROR message for updating a task
+    'EDITAR_TAREA_ERROR' => [
+        'type' => 'danger',
+        'msg' => '<strong>Error:</strong> Failed to update task <strong>%s</strong>.'
+    ],
+
     // FAIL message for deleting a task
     'BORRAR_TAREA_FAIL' => [
         'type' => 'danger',
-        'msg' => 'Error processing AJAX request.'
+        'msg' => 'Error processing AJAX request of delete task <strong>%s</strong>.'
+    ],
+
+    // FAIL message for updating a task
+    'EDITAR_TAREA_FAIL' => [
+        'type' => 'danger',
+        'msg' => 'Error processing AJAX request of update task <strong>%s</strong>.'
+    ],
+
+    // Message for "tarea-card" class not found
+    'ACCION_TAREA_CARD_ERR' => [
+        'type' => 'danger',
+        'msg' => 'The class <strong>"tarea-card"</strong> does not exist.'
+    ],
+
+    // Error message when querying the list of users
+    'LISTA_USUARIOS_ERROR' => [
+        'type' => 'danger',
+        'msg' => 'The query <strong>"SELECT * FROM app_users WHERE status = 2"</strong> was not successful.'
     ],
 
     // Main menu of the application
@@ -88,4 +129,19 @@ return [
     'APP_PLACEHOLDER_PASSWORD' => 'Enter your password',
     'APP_LOGIN_BUTTON' => 'Log in',
     'APP_RESET_BUTTON' => 'Reset',
+
+    // Traducciones de la tarjeta de una tarea
+    'APP_TAREA_ESTADO_ACTIVA' => 'active',
+    'APP_TAREA_ESTADO_PENDIENTE' => 'pending',
+    'APP_TAREA_ESTADO_FINALIZADA' => 'completed',
+    'APP_TAREA_ESTADO_EN_MARCHA' => 'in_progress',
+    'APP_TAREA_ESTADO_CANCELADA' => 'cancelled',
+    'APP_TAREA_ESTADO_FALLADA' => 'failed',
+    'APP_TAREA_CARD_DESCRIPTION' => '<strong>Description:</strong> %s',
+    'APP_TAREA_CARD_USER_ASIGN' => '<strong>Assigned User:</strong> %s:',
+    'APP_TAREA_CARD_DATE_START' => '<strong>Start Date:</strong> %s:',
+    'APP_TAREA_CARD_DATE_END' => '<strong>End Date:</strong> %s',
+    'APP_TAREA_CARD_BOTON_EDIT' => 'Edit',
+    'APP_TAREA_CARD_BOTON_DEL' => 'Delete',
+
 ];

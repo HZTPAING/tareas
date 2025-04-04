@@ -45,7 +45,8 @@
     <!-- CARGA DE CSS PERSONALIZADO -->
     <link rel="stylesheet" href="<?= BASE_URL . DIRECTORY_SEPARATOR .  'public' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'tareas_style.css'; ?>">
     <link rel="stylesheet" href="<?= BASE_URL . DIRECTORY_SEPARATOR .  'public' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'tareas_container.css'; ?>">    
-    <link rel="stylesheet" href="<?= BASE_URL . DIRECTORY_SEPARATOR .  'public' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'script_alert.css'; ?>">   
+    <link rel="stylesheet" href="<?= BASE_URL . DIRECTORY_SEPARATOR .  'public' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'script_alert.css'; ?>">
+    <link rel="stylesheet" href="<?= BASE_URL . DIRECTORY_SEPARATOR .  'public' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'styles.css';?>">
     
     <!-- CARGA DE JS EXTERNOS -->
     <!-- jQuery -->

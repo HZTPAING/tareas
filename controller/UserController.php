@@ -4,6 +4,13 @@
     use Hztpaing\Tareas\model\Model_crud;
 
     class UserController extends Model_crud {
+        public function ListaUsuario($idUser = null) {
+            $query = "SELECT rowid, name, email, status, 
+                    CASE WHEN rowid = ? THEN true ELSE false END AS is_selected 
+                FROM app_users WHERE status = 2";
+
+            return $this->execute_prepared_select($query, 'i', [$idUser]);
+        }
 
         public function ValidarUsuario($datos) {
             $query = "SELECT * FROM app_users WHERE status = 2 AND email = ?";

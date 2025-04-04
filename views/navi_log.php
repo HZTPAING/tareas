@@ -48,7 +48,7 @@
 <!-- Cabecera con espacio para mensajes de respuesta -->
 <header class="container-fluid py-3 bg-light">
     <!-- Mensaje de respuesta dinámico -->
-    <div id="res" class="message-res">
+    <div id="mensajeStatus" class="message-res">
         <?php
             // Verificar si hy mensajes de respuesta y mostrarlos de forma segura
             if (isset($_GET['resData']) && isset($_GET['resCode'])) {

@@ -5,7 +5,6 @@
  * Configura la carga de dependencias, inicializa variables de entorno y
  * define rutas clave del sistema.
  */
-
     // Utilizar Dotenv para manejar variables de entorno
     use Dotenv\Dotenv;
     use Hztpaing\Tareas\controller\Router;

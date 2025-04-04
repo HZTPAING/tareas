@@ -1,0 +1,4 @@
+.input-group-text-icono-select i {
+    font-size: 1.2em; /* Escalar automáticamente */
+    line-height: 1;   /* Evita desajustes verticales */
+}

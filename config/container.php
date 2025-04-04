@@ -8,6 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 use Pimple\Container;
 use Hztpaing\Tareas\src\localization\Translator;
 use Hztpaing\Tareas\src\helpers\HtmlHelper;
+use Hztpaing\Tareas\src\helpers\ModalHelper;
 use Hztpaing\Tareas\src\helpers\ApiHelper;
 use Hztpaing\Tareas\controller\TareasController;
 use Saludo\Saludo\Saludo;
@@ -25,6 +26,11 @@ $container['translator'] = function ($c) {
 // Definir el servicio 'htmlHelper'
  $container['htmlHelper'] = function ($c) {
     return new HtmlHelper();
+};
+
+// Definir el servicio 'ModalHelper'
+$container['modalHelper'] = function ($c) {
+    return new ModalHelper();
 };
 
 // Definir el servicio 'apiHelper'

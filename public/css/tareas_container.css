@@ -1,6 +1,7 @@
 /* === VARIABLES GLOBALES === */
 /* Define los colores utilizados para las tarjetas y badges */
 :root {
+    /* Colores claros (Body de las tarjetas y modal) */
     --color-azul: #f0f8ff; /* Fondo para tarjetas activas */
     --color-amarillo: #d5cdff; /* Fondo para tarjetas pendientes */
     --color-verde: #e6ffe6; /* Fondo para tarjetas finalizadas */
@@ -9,6 +10,18 @@
     --color-morado: #f8f0ff; /* Fondo para tarjetas falladas */
     --color-default: #f5f5f5; /* Fondo para tarjetas predeterminadas */
     --sombra-tarjeta: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+
+    /* Colores más oscuros (Headers y footers en modal) */
+    --color-azul-oscuro: #b0d4f1; /* Azul más oscuro */
+    --color-amarillo-oscuro: #f3d787; /* Amarillo más oscuro */
+    --color-verde-oscuro: #a3e6a3; /* Verde más oscuro */
+    --color-naranja-oscuro: #ffbb77; /* Naranja más oscuro */
+    --color-rojo-oscuro: #ff9999; /* Rojo más oscuro */
+    --color-morado-oscuro: #d4a6ff; /* Morado más oscuro */
+    --color-default-oscuro: #d6d6d6; /* Gris más oscuro */
+
+    /* Sombra */
+    --sombra-tarjeta: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* === TARJETAS === */
@@ -33,35 +46,56 @@
     border-left: 5px solid blue; /* Línea azul en el borde izquierdo */
     background-color: var(--color-azul); /* Fondo azul claro */
 }
+.card-activa-header, .card-activa-footer {
+    background-color: var(--color-azul-oscuro); /* Azul más oscuro */
+}
 
 .card-pendiente {
     border-left: 5px solid yellow;
     background-color: var(--color-amarillo);
+}
+.card-pendiente-header, .card-pendiente-footer {
+    background-color: var(--color-amarillo-oscuro);
 }
 
 .card-finalizada {
     border-left: 5px solid green;
     background-color: var(--color-verde);
 }
+.card-finalizada-header, .card-finalizada-footer {
+    background-color: var(--color-verde-oscuro);
+}
 
 .card-en-marcha {
     border-left: 5px solid orange;
     background-color: var(--color-naranja);
+}
+.card-en-marcha-header, .card-en-marcha-footer {
+    background-color: var(--color-naranja-oscuro);
 }
 
 .card-cancelada {
     border-left: 5px solid red;
     background-color: var(--color-rojo);
 }
+.card-cancelada-header, .card-cancelada-footer {
+    background-color: var(--color-rojo-oscuro);
+}
 
 .card-fallada {
     border-left: 5px solid purple;
     background-color: var(--color-morado);
 }
+.card-fallada-header, .card-fallada-footer {
+    background-color: var(--color-morado-oscuro);
+}
 
 .card-default {
     border-left: 5px solid gray;
     background-color: var(--color-default);
+}
+.card-default-header, .card-default-footer {
+    background-color: var(--color-default-oscuro);
 }
 
 /* === CONTENEDOR DE TARJETAS === */

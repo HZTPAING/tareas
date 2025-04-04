@@ -96,6 +96,13 @@ class Router {
                 // Obtener traducciones
                 $this->apiHelper->handleApiTranslations();
                 break;
+            // ADICIONAL
+            case 'adicional':
+                // Procesar la acción de consultar la lista de los usuarios
+                if ($this->requestData['action'] == 'AJAX_LISTA_USUARIOS') {
+                    $this->listaUsuarios($this->requestData['idUser_cargo']);
+                }
+                break;
             default:
                 $controller->load_view('404');
                 break;
@@ -106,7 +113,7 @@ class Router {
         // Eliminar la tarea de la base de datos
         try {
             // Eliminar la tarea de la base de datos
-            $this->tareasController->delete($datos['rowid'], 'i');
+            $this->tareasController->delete($datos['rowId'], 'i');
             echo json_encode([
                 'success' => true,
                 'msg' => $datos['nombreTarea']
@@ -118,6 +125,24 @@ class Router {
                 'msg' => $datos['nombreTarea']
             ]);
         }
+    }
+
+    private function listaUsuarios($idUser_cargo) {
+        $user_controller = new UserController();
+        try {
+            $datos_usuarios = $user_controller->ListaUsuario($idUser_cargo);
+            echo json_encode([
+                'success' => true,
+                'datos_usuarios' => $datos_usuarios
+            ]);
+        } catch (Exception $e) {
+            // En caso de error, enviar el mensaje de error
+            echo json_encode([
+                'success' => false,
+                'msg' => $e->getMessage()
+            ]);
+        }
+
     }
 
     private function load_tareas($controller) {
